@@ -199,6 +199,79 @@
         margin-bottom: 10px;
       }
 
+      /* Reviews Section */
+      .reviews {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 50px 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+      }
+
+      .reviews h2 {
+        color: #7b68a6;
+        font-size: 2.2em;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 20px;
+      }
+
+      blockquote.review-card {
+        position: relative;
+        margin: 0;
+        padding: 28px 26px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 10px 25px rgba(123, 104, 166, 0.18);
+        border: 1px solid rgba(155, 126, 189, 0.25);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      blockquote.review-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 35px rgba(123, 104, 166, 0.28);
+      }
+
+      blockquote.review-card::before {
+        content: "“";
+        position: absolute;
+        top: 10px;
+        right: 18px;
+        font-size: 64px;
+        line-height: 1;
+        color: rgba(155, 126, 189, 0.35);
+        font-weight: 700;
+      }
+
+      blockquote.review-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(232, 180, 212, 0.18) 0%,
+          rgba(155, 126, 189, 0.14) 50%,
+          rgba(123, 104, 166, 0.12) 100%
+        );
+        pointer-events: none;
+      }
+
+      .review-text {
+        position: relative;
+        z-index: 1;
+        font-size: 1.15em;
+        color: #4b3f66;
+        line-height: 1.9;
+        white-space: pre-line;
+      }
+
       /* Gallery Section */
       .gallery {
         background: rgba(255, 255, 255, 0.9);
@@ -398,6 +471,7 @@
 
         .hero-section h2,
         .benefits h2,
+        .reviews h2,
         .gallery h2,
         .certificates h2,
         .contact h2 {
@@ -405,6 +479,10 @@
         }
 
         .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .reviews-grid {
           grid-template-columns: 1fr;
         }
 
@@ -437,6 +515,7 @@
         <a href="#about">👤 אודות</a>
         <a href="#nlp">💫 NLP</a>
         <a href="#benefits">🎯 יתרונות</a>
+        <a href="#reviews">💬 ביקורות</a>
         <a href="#gallery">🎵 שירים</a>
         <a href="#certificates">📜 הסמכות</a>
         <a href="#contact">📞 יצירת קשר</a>
@@ -515,6 +594,38 @@
           </div>
         </div>
       </section>
+
+      <!-- Reviews -->
+      <section id="reviews" class="reviews">
+        <h2>ביקורות 💬</h2>
+        <div class="reviews-grid">
+          <blockquote class="review-card">
+            <div class="review-text">
+              "ושתדעי אמאלה, הבת שלי קיבלה ביטחון השתנתה מאוד הולכת למקומות לבד,
+              לפני כן לא הייתה זזה בלעדי אין את אלופה ואת במקצוע הנכון"
+            </div>
+          </blockquote>
+
+          <blockquote class="review-card">
+            <div class="review-text">"תודה שאת חלק מחיי."</div>
+          </blockquote>
+
+          <blockquote class="review-card">
+            <div class="review-text">
+              "בחיים יש רגעים קטנים שהם הכי גדולים שיש ...<br />
+              בתחילת השנה הוא היה כפוף, כבוי, לא מסוגל ללכת לבית הספר, בכה,
+              הסתגר.<br />
+              ופתאום, לראות אותו שוב כמו פעם. ילד שמח, מחבק, מדבר, הולך בביטחון,
+              יושב ולומד...<br />
+              כל השינוי הזה, חד משמעית, בזכות הטיפולים... בלי הליווי המקצועי זה
+              לא היה קורה ובזמן כל כך קצר, פשוט אין לי מילים.<br />
+              אני מודה. מתרגשת. אסירת תודה.<br />
+              זה לא מובן מאליו."
+            </div>
+          </blockquote>
+        </div>
+      </section>
+
       <section id="certificates" class="certificates">
         <h2>הסמכות ותעודות</h2>
         <div class="gallery-container">
@@ -560,6 +671,7 @@
           </div>
         </div>
       </section>
+
       <section id="gallery" class="gallery">
         <h2>שירים שכתבתי 🎵</h2>
         <div class="gallery-container">
