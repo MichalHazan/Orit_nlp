@@ -5,522 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light only" />
     <title>אורית אבן-חן - NLP Master</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        color-scheme: light only;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(
-          135deg,
-          #e8b4d4 0%,
-          #c197d2 25%,
-          #9b7ebd 50%,
-          #7b68a6 75%,
-          #5d4e8c 100%
-        );
-        color: #333;
-        line-height: 1.6;
-        padding-top: 70px;
-      }
-
-      /* Navigation Menu */
-      .nav-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        padding: 15px 0;
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .nav-menu a {
-        color: #7b68a6;
-        text-decoration: none;
-        padding: 8px 16px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        font-size: 0.95em;
-      }
-
-      .nav-menu a:hover {
-        background: linear-gradient(135deg, #e8b4d4 0%, #9b7ebd 100%);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      header {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 40px 20px;
-        text-align: center;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-        backdrop-filter: blur(10px);
-      }
-
-      .logo {
-        max-width: 250px;
-        height: auto;
-        margin-bottom: 20px;
-      }
-
-      .profile-section {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 50px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .profile-image {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        object-fit: contain;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(123, 104, 166, 0.3);
-      }
-
-      .profile-text {
-        flex: 1;
-        min-width: 300px;
-        max-width: 600px;
-      }
-
-      h1 {
-        font-size: 3em;
-        color: #7b68a6;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
-      }
-
-      .subtitle {
-        font-size: 1.5em;
-        color: #9b7ebd;
-        font-weight: 300;
-        margin-top: 10px;
-      }
-
-      .hero-section {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 50px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-        text-align: center;
-      }
-
-      .hero-section h2 {
-        color: #7b68a6;
-        font-size: 2.2em;
-        margin-bottom: 20px;
-      }
-
-      .hero-section p {
-        font-size: 1.2em;
-        color: #555;
-        line-height: 1.8;
-        max-width: 800px;
-        margin: 0 auto 20px;
-      }
-
-      .benefits {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 50px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-      }
-
-      .benefits h2 {
-        color: #7b68a6;
-        font-size: 2.2em;
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .benefits-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-        margin-top: 30px;
-      }
-
-      .benefit-card {
-        background: linear-gradient(135deg, #e8b4d4 0%, #c197d2 100%);
-        padding: 25px;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        color: white;
-      }
-
-      .benefit-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(123, 104, 166, 0.3);
-      }
-
-      .benefit-card h3 {
-        font-size: 1.4em;
-        margin-bottom: 10px;
-      }
-
-      /* Reviews Section */
-      .reviews {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 50px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-      }
-
-      .reviews h2 {
-        color: #7b68a6;
-        font-size: 2.2em;
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .reviews-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-        margin-top: 20px;
-      }
-
-      blockquote.review-card {
-        position: relative;
-        margin: 0;
-        padding: 28px 26px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.85);
-        box-shadow: 0 10px 25px rgba(123, 104, 166, 0.18);
-        border: 1px solid rgba(155, 126, 189, 0.25);
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      blockquote.review-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 16px 35px rgba(123, 104, 166, 0.28);
-      }
-
-      blockquote.review-card::before {
-        content: "“";
-        position: absolute;
-        top: 10px;
-        right: 18px;
-        font-size: 64px;
-        line-height: 1;
-        color: rgba(155, 126, 189, 0.35);
-        font-weight: 700;
-      }
-
-      blockquote.review-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(232, 180, 212, 0.18) 0%,
-          rgba(155, 126, 189, 0.14) 50%,
-          rgba(123, 104, 166, 0.12) 100%
-        );
-        pointer-events: none;
-      }
-
-      .review-text {
-        position: relative;
-        z-index: 1;
-        font-size: 1.15em;
-        color: #4b3f66;
-        line-height: 1.9;
-        white-space: pre-line;
-      }
-
-      /* Gallery Section */
-      .gallery {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 50px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-      }
-
-      .gallery h2 {
-        color: #7b68a6;
-        font-size: 2.2em;
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .gallery-container {
-        display: flex;
-        gap: 20px;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        padding: 20px 0;
-        scrollbar-width: thin;
-        scrollbar-color: #9b7ebd rgba(255, 255, 255, 0.3);
-      }
-
-      .gallery-container::-webkit-scrollbar {
-        height: 10px;
-      }
-
-      .gallery-container::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 10px;
-      }
-
-      .gallery-container::-webkit-scrollbar-thumb {
-        background: #9b7ebd;
-        border-radius: 10px;
-      }
-
-      .gallery-container::-webkit-scrollbar-thumb:hover {
-        background: #7b68a6;
-      }
-
-      .gallery-item {
-        flex: 0 0 calc(50% - 10px);
-        min-width: 300px;
-        max-width: 500px;
-      }
-
-      .gallery-image {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(123, 104, 166, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .gallery-image:hover {
-        transform: scale(1.03);
-        box-shadow: 0 15px 40px rgba(123, 104, 166, 0.5);
-      }
-
-      .certificates {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 50px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-      }
-
-      .certificates h2 {
-        color: #7b68a6;
-        font-size: 2.2em;
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .certificates-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
-        justify-items: center;
-      }
-
-      .certificate-item {
-        text-align: center;
-      }
-
-      .certificate-item h3 {
-        color: #7b68a6;
-        font-size: 1.3em;
-        margin-bottom: 15px;
-      }
-
-      .certificate-image {
-        width: 100%;
-        max-width: 450px;
-        height: auto;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(123, 104, 166, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .certificate-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 15px 40px rgba(123, 104, 166, 0.5);
-      }
-
-      .contact {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 50px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        text-align: center;
-      }
-
-      .contact h2 {
-        color: #7b68a6;
-        font-size: 2.2em;
-        margin-bottom: 30px;
-      }
-
-      .contact-info {
-        font-size: 1.3em;
-        color: #555;
-        margin: 15px 0;
-      }
-
-      .contact-button {
-        display: inline-block;
-        background: linear-gradient(135deg, #e8b4d4 0%, #9b7ebd 100%);
-        color: white;
-        padding: 15px 40px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-size: 1.3em;
-        margin: 10px;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(123, 104, 166, 0.3);
-      }
-
-      .contact-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(123, 104, 166, 0.5);
-      }
-
-      footer {
-        text-align: center;
-        padding: 30px;
-        color: white;
-        font-size: 0.9em;
-        margin-top: 40px;
-      }
-
-      @media (max-width: 768px) {
-        body {
-          padding-top: 120px;
-        }
-
-        .nav-menu {
-          padding: 10px 0;
-        }
-
-        .nav-container {
-          gap: 5px;
-        }
-
-        .nav-menu a {
-          font-size: 0.85em;
-          padding: 6px 12px;
-        }
-
-        h1 {
-          font-size: 2em;
-        }
-
-        .subtitle {
-          font-size: 1.2em;
-        }
-
-        .logo {
-          max-width: 180px;
-        }
-
-        .profile-section {
-          flex-direction: column;
-        }
-
-        .profile-image {
-          width: 100%;
-          max-width: 300px;
-          height: auto;
-        }
-
-        .hero-section h2,
-        .benefits h2,
-        .reviews h2,
-        .gallery h2,
-        .certificates h2,
-        .contact h2 {
-          font-size: 1.6em;
-        }
-
-        .benefits-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .reviews-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .gallery-item {
-          flex: 0 0 85%;
-          min-width: 280px;
-        }
-
-        .gallery-image {
-          height: 350px;
-        }
-
-        .certificates-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .contact-button {
-          display: block;
-          margin: 10px auto;
-          max-width: 300px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
+
   <body>
     <!-- Navigation Menu -->
-    <nav class="nav-menu">
-      <div class="nav-container">
-        <a href="#home">🏠 בית</a>
-        <a href="#about">👤 אודות</a>
-        <a href="#nlp">💫 NLP</a>
-        <a href="#benefits">🎯 יתרונות</a>
-        <a href="#reviews">💬 ביקורות</a>
-        <a href="#gallery">🎵 שירים</a>
-        <a href="#certificates">📜 הסמכות</a>
-        <a href="#contact">📞 יצירת קשר</a>
+    <nav class="nav-menu" id="navMenu">
+      <div class="nav-shell">
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="פתח תפריט"
+          aria-expanded="false"
+          type="button"
+        >
+          <div class="burger" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+
+        <div class="nav-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <div class="nav-links-inner">
+          <div class="nav-container">
+            <a href="#home">🏠 בית</a>
+            <a href="#about">👤 אודות</a>
+            <a href="#nlp">💫 NLP</a>
+            <a href="#benefits">🎯 יתרונות</a>
+            <a href="#reviews">💬 שיתופים</a>
+            <a href="#gallery">🎵 שירים</a>
+            <a href="#certificates">📜 הסמכות</a>
+            <a href="#contact">📞 יצירת קשר</a>
+          </div>
+        </div>
       </div>
     </nav>
+
+    <div class="nav-backdrop" id="navBackdrop"></div>
 
     <div class="container">
       <header id="home">
@@ -540,10 +63,8 @@
           class="profile-image"
         />
         <div class="profile-text">
-          <h2 style="color: #7b68a6; font-size: 2.2em; margin-bottom: 20px">
-            שלום, אני אורית
-          </h2>
-          <p style="font-size: 1.2em; color: #555; line-height: 1.8">
+          <h2 class="section-title">שלום, אני אורית</h2>
+          <p class="section-paragraph">
             כמאמנת NLP מוסמכת ומומחית לטיפול בטראומה, אני מאמינה בכוחו של כל אדם
             ליצור שינוי אמיתי בחייו. בעזרת כלים מתקדמים אני מלווה אנשים במסע
             האישי שלהם להגשמה עצמית, צמיחה אישית והתמודדות עם אתגרי החיים.
@@ -595,10 +116,18 @@
         </div>
       </section>
 
-      <!-- Reviews -->
       <section id="reviews" class="reviews">
-        <h2>ביקורות 💬</h2>
+        <h2>מטופלים משתפים 💬</h2>
         <div class="reviews-grid">
+          <blockquote class="review-card">
+            <div class="review-text">
+              "תודה ענקית על הסיוע והטיפול המסור ביהלי שלי. קיבלת את פניו בחיוך
+              ובנעימות שהרגיש כל כך בנוח איתך. תוך 3 מפגשים הילד הרגיש שהוא שולט
+              בחרדות ובפחדים שהיו לו. הבכי הפסיק, חוסר הרצון ללכת לבית הספר,
+              משהו בו השתחרר ונרגע. עשית קסם ! ועל כך אני מודה לך מאוד. תודה
+              מעומק ליבי ונשמתי."
+            </div>
+          </blockquote>
           <blockquote class="review-card">
             <div class="review-text">
               "ושתדעי אמאלה, הבת שלי קיבלה ביטחון השתנתה מאוד הולכת למקומות לבד,
@@ -626,7 +155,7 @@
         </div>
       </section>
 
-      <section id="certificates" class="certificates">
+      <!-- <section id="certificates" class="certificates">
         <h2>הסמכות ותעודות</h2>
         <div class="gallery-container">
           <div class="gallery-item">
@@ -670,17 +199,16 @@
             />
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section id="gallery" class="gallery">
-        <h2>שירים שכתבתי 🎵</h2>
+        <h2>מסע ההגשמה שלי בשירים 🎵</h2>
         <div class="gallery-container">
           <div class="gallery-item">
             <img
               src="https://res.cloudinary.com/dudhjbvhq/image/upload/v1763835760/WhatsApp_Image_2025-11-22_at_20.18.20_1_aizcuf.jpg"
               alt="שיר 1"
               class="gallery-image"
-              onclick="openModal(this.src, this.alt)"
             />
           </div>
           <div class="gallery-item">
@@ -688,7 +216,6 @@
               src="https://res.cloudinary.com/dudhjbvhq/image/upload/v1763835760/WhatsApp_Image_2025-11-22_at_20.18.19_1_ordayd.jpg"
               alt="שיר 2"
               class="gallery-image"
-              onclick="openModal(this.src, this.alt)"
             />
           </div>
           <div class="gallery-item">
@@ -696,7 +223,6 @@
               src="https://res.cloudinary.com/dudhjbvhq/image/upload/v1763835760/WhatsApp_Image_2025-11-22_at_20.18.20_bksksr.jpg"
               alt="שיר 3"
               class="gallery-image"
-              onclick="openModal(this.src, this.alt)"
             />
           </div>
           <div class="gallery-item">
@@ -704,7 +230,6 @@
               src="https://res.cloudinary.com/dudhjbvhq/image/upload/v1763835761/WhatsApp_Image_2025-11-22_at_20.19.34_1_ip4emg.jpg"
               alt="שיר 4"
               class="gallery-image"
-              onclick="openModal(this.src, this.alt)"
             />
           </div>
           <div class="gallery-item">
@@ -756,19 +281,19 @@
               class="gallery-image"
             />
           </div>
+          <div class="gallery-item">
+            <img
+              src="https://res.cloudinary.com/dudhjbvhq/image/upload/v1766578518/WhatsApp_Image_2025-12-05_at_20.46.49_rgikxd.jpg"
+              alt="שיר 12"
+              class="gallery-image"
+            />
+          </div>
         </div>
       </section>
 
       <section id="contact" class="contact">
         <h2>בואו נתחיל במסע משותף</h2>
-        <p
-          style="
-            font-size: 1.2em;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 30px;
-          "
-        >
+        <p class="contact-subtitle">
           מוזמנים ליצור קשר לקביעת פגישת היכרות ראשונית ללא התחייבות
         </p>
         <div class="contact-info">
@@ -780,6 +305,7 @@
           href="https://wa.me/972544369800"
           class="contact-button"
           target="_blank"
+          rel="noopener"
           >שלחו הודעה בוואטסאפ</a
         >
       </section>
@@ -789,48 +315,6 @@
       </footer>
     </div>
 
-    <script>
-      // הוספת אנימציות חלקות בגלילה
-      document.addEventListener("DOMContentLoaded", function () {
-        const sections = document.querySelectorAll("section");
-
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver(function (entries) {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateY(0)";
-            }
-          });
-        }, observerOptions);
-
-        sections.forEach((section) => {
-          section.style.opacity = "0";
-          section.style.transform = "translateY(20px)";
-          section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-          observer.observe(section);
-        });
-
-        // גלילה חלקה לקישורי ניווט
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-              const offset = 80;
-              const targetPosition = target.offsetTop - offset;
-              window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth",
-              });
-            }
-          });
-        });
-      });
-    </script>
+    <script src="./app.js"></script>
   </body>
 </html>
